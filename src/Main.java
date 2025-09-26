@@ -6,7 +6,7 @@ public class Main {
 
         Scanner scan = new Scanner(System.in);
 
-        double tipTotal;
+        double tipTotal; //Sets up every variable that need to be calculated from user input.
         double billAndTipTotal;
         double tipPerPerson;
         double totalPerPerson;
@@ -18,7 +18,7 @@ public class Main {
         scan.nextLine();
 
         System.out.print("What is the percentage tip? (Enter as a whole number): ");
-        double tipPercentage = scan.nextDouble();
+        int tipPercentage = scan.nextInt();
         scan.nextLine();
 
         System.out.print("How many people are paying?: ");
@@ -27,18 +27,29 @@ public class Main {
 
         System.out.println("-------------------------------------------------------------------");
 
-        tipTotal = billTotal * (tipPercentage/100);
-        System.out.println("The total tip amount is $" + tipTotal + ".");
-
+        tipTotal = billTotal * (tipPercentage/100.0);
+        tipTotal = (int)(tipTotal * 100)/100.0;
+        System.out.print("The total tip amount is $");
+        System.out.printf("%.2f", tipTotal);
+        System.out.println();
 
         billAndTipTotal = billTotal + tipTotal;
-        System.out.println("The total bill plus tip amount is $" + billAndTipTotal + ".");
+        System.out.print("The total bill plus tip amount is $");
+        System.out.printf("%.2f", billAndTipTotal);
+        System.out.println();
 
         tipPerPerson =  tipTotal/numberOfPeople;
-        System.out.println("The total tip paid for each person is $" + tipPerPerson + ".");
+        tipPerPerson = (int)(tipPerPerson * 100)/100.0;
+        System.out.print("The total tip paid for each person is $");
+        System.out.printf("%.2f", tipPerPerson);
+        System.out.println();
 
         totalPerPerson =  billAndTipTotal/numberOfPeople;
-        System.out.println("The total price padif  paid for is $" + totalPerPerson + ".");
+        totalPerPerson = (int)(totalPerPerson * 100)/100.0;
+        System.out.print("The total price per person is $");
+        System.out.printf("%.2f", totalPerPerson);
+        System.out.println();
 
+        System.out.println("-------------------------------------------------------------------");
     }
 }
